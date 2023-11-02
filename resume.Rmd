@@ -1,0 +1,52 @@
+---
+title: "resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+
+
+## education
+
+
+###### **2022-2024**
+
+#### *Columbia University, Mailman School of Public Health* 
+
+- Master of Public Health in Epidemiology
+- Certificate in Applied Biostatistics and Public Health Data Science
+
+###### **2018-2022**
+
+#### *University of Oklahoma*
+
+- Bachelor of Science in Biology
+
+
+
+
+## experience
+
+###### **2023-current**
+
+#### Research Assistant
+
+*Eco-Epidemiology Lab, Columbia University*
+
+- Assisted in mammal and tick field work
+- Performed data analyses using R and QGIS
+
+###### **2021-2022**
+
+#### Intern 
+
+*Western Gulf Center of Excellence for Vector-Borne Diseases*
+
+- Designed a project for tick surveillance in central Oklahoma
+- Collected ticks from Oklahoma parks using a variety of techniques
+- Used dichotomous keys to identify ticks to species
+- Collaborated with Oklahoma County Public Health Department for public awareness
+
+

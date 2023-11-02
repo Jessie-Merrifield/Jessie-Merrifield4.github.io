@@ -1,0 +1,16 @@
+name: "Yay internet!"
+output_dir: "."
+navbar:
+  title: "home"
+  right:
+    - text: "resume"
+      href: resume.html
+    - text: "projects"
+      href: HW4_Q2.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<jmm2511@cumc.columbia.edu>
+    - icon: fa-github fa-lg
+      href: http://github.com/<Jessie-Merrifield>/
+output:
+  html_document:
+    theme: darkly

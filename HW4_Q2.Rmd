@@ -1,0 +1,80 @@
+---
+title: "Homework 4 Question 2"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+
+library(flexdashboard)
+library(plotly)
+library(p8105.datasets)
+library(dplyr)
+library(rnoaa)
+library(tidyverse)
+```
+
+```{r data, include=FALSE}
+data("instacart")
+
+instacart = 
+  instacart |> 
+  as_tibble()
+
+```
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+#### The number of Instacart items ordered by store department
+
+```{r}
+instacart |> 
+  count(department) |> 
+  mutate(department = fct_reorder(department, n)) |> 
+  plot_ly(x = ~department, y = ~n, color = ~department, type = "bar", colors = "viridis") |>
+  layout(yaxis = list(title = "number of items ordered"))
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+#### The number of Instacart items ordered from the pets department by day of the week
+
+```{r}
+
+
+instacart |> 
+  mutate(dow = recode(order_dow, 
+                      "0" = "Sunday",
+                      "1" = "Monday",
+                      "2" = "Tuesday",
+                      "3"="Wednesday",
+                      "4"="Thursday",
+                      "5"="Friday",
+                      "6"="Saturday"))|>
+  mutate(dow=factor(dow, ordered = TRUE,c("Sunday", "Monday", 
+    "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday") )) |>
+  
+  filter(department == "pets") |>
+  group_by(dow, department)|>
+  count(department) |> 
+  plot_ly(x = ~dow, y = ~n, type = "scatter" , colors = "viridis") |>
+  layout(yaxis = list(title = "number of items ordered"), xaxis = list(title = "day of the week"))
+
+
+```
+
+#### The reorder time for items from pets department versus produce department
+
+```{r}
+instacart |>
+  filter(department == c("pets", "produce")) |>
+  group_by(department, days_since_prior_order) |>
+  plot_ly(y = ~days_since_prior_order, color = ~department, type = "box", colors = "viridis")|>
+  layout(yaxis = list(title = "number of days since prior order"), xaxis = list(title = "department"))
+
+```
